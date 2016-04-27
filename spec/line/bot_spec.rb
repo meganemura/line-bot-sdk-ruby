@@ -138,6 +138,10 @@ describe Line::Bot do
     }.to raise_error(ArgumentError)
 
     expect {
+      client.send_text(to_mid: ['123', 123], text: "text")
+    }.to raise_error(ArgumentError)
+
+    expect {
       client.send_text(to_mid: {}, text: "text")
     }.to raise_error(ArgumentError)
   end
